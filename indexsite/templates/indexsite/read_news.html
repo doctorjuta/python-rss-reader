@@ -1,0 +1,20 @@
+{% if usernews %}
+    {% for news in usernews %}
+        {% if news.isread %}
+        <div class="clfx isread posts">
+        {% else %}
+        <div class="clfx notread posts">
+        {% endif %}
+            <h3><a href="{{ news.usernew.newslink }}" target="_blank">{{ news.usernew.newstitle }}</a></h3>
+            <div>
+                <p class="meta_date">{{ news.usernew.rssfeed }} / {{ news.usernew.newsdate|date:"d E Y H:i:s" }}</p>
+                {{ news.usernew.newstext | safe }}
+                <p class="makeread"><a href="{% url 'makeread' news.usernew.id %}">Mark as read</a></p>
+            </div>
+        </div>
+    {% endfor %}
+{% elif nomorepage%}
+    <div id="news_block_nomore">No more news.</div>
+{% else %}
+    <div id="news_block_nomore">You do not have any news.</div>
+{% endif %}

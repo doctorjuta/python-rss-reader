@@ -1,0 +1,27 @@
+{% extends 'indexsite/base.html' %}
+
+{% block title %}RSS reader - RSS feeds{% endblock %}
+
+{% block content %}
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}
+<h2>Add new RSS:</h2>
+<form id="addrss_form" method="POST" action="{% url 'rsslist' %}">
+{% csrf_token %}
+{{ addrssform.as_p }}
+<input type="submit" name="submit_rss" value="Add" />
+</form>
+<h2>Your RSS channels:</h2>
+{% if userfeeds %}
+    <form method="POST" action="{% url 'rsslist' %}" id="rsslist">
+    {% csrf_token %}
+    {% for news in userfeeds %}
+        <h4>{{ news.feed.rsstitle }}</h4>
+        <button value="{{ news.feed.id }}" name="remove">Remove</button>
+    {% endfor %}
+    </form>
+{% else %}
+    <p>Your RSS list is empty.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,44 @@
+html, body { margin:0; padding:0; }
+.wrapper { width:1000px; margin:0 auto; }
+body { font: 12px/14px Arial, Helvetica, sans-serif; color: #000; }
+* { box-sizing: border-box; }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+a img { border: 0; }
+input[type="submit"], a { -webkit-transition: all .5s ease; -moz-transition: all .5s ease; -o-transition: all .5s ease; transition: all .5s ease; }
+nav ul { margin: 0; padding: 0; list-style-type: none; }
+
+/************************ Header **************************/
+
+
+/************************ Top Content Section ****************/
+
+
+/************************ Content Section *******************/
+#news_block_loading { display: none; }
+.meta_date { font-size: 0.75em; color: #ccc; }
+.posts.isread { background:#ccc; }
+
+/************************ Footer Section *********************/
+
+
+/************************ ClearFix Section *******************/
+.clfx:before, .clfx:after { content: ""; display: table; }
+.clfx:after { clear: both; }
+.clfx { zoom: 1; }
+
+/************************ Respons Section *******************/
+
+/* Desktops and laptops  */
+@media only screen and (max-width : 1000px) {
+    .wrapper { width: 90%; margin: 0 5%; }
+    
+}
+
+@media only screen and (max-width : 650px) {
+   
+}
+
+@media only screen and (max-width : 400px) {
+    
+}

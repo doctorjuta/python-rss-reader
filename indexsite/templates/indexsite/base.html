@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        {% load staticfiles %}
+		<!--[if lt IE 9]><script src="{% static 'indexsite/js/html5shiv.js' %}"></script><![endif]-->
+		<!--[if IE]><link href="{% static 'indexsite/css/ieStyle.css' %}" rel="stylesheet"><![endif]-->
+		<script src="{% static 'indexsite/js/jquery.min.js' %}"></script>
+		<script src="{% static 'indexsite/js/slick.min.js' %}"></script>
+		<script src="{% static 'indexsite/js/main.js' %}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'indexsite/js/slick.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'indexsite/css/normalize.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'indexsite/css/style.css' %}">
+	</head>
+	<body>
+        <div class="wrapper">
+            {% if user.is_authenticated %}
+            <p><a href="{% url 'logout' %}">Logout</a><a href="{% url 'read' %}">News</a><a href="{% url 'rsslist' %}">RSS List</a></p>
+            {% else %}
+                <p><a href="{% url 'register' %}">Register</a></p>
+            {% endif %}
+            {% block content %}{% endblock %}
+        </div>
+        <footer>
+            <div style="height:100px;background:#000;"></div>
+        </footer>
+    </body>
+</html>
